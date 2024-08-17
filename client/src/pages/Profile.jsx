@@ -21,6 +21,7 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
+  signOutSuccess,
 } from "../redux/userSlice";
 // Importation de useSignInMutation:
 import {
@@ -216,6 +217,7 @@ export default function Profile() {
   const handleSignOut = async () => {
     try {
       await signOut().unwrap();
+      dispatch(signOutSuccess());
       navigate("/");
     } catch (error) {
       console.error("Erreur lors de la déconnexion:", error);

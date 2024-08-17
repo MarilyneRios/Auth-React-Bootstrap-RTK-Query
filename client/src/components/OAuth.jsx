@@ -23,23 +23,7 @@ export default function OAuth(  {label}) {
 
         // Affichage de la fenêtre pop-up pour l'authentification Google
         const result = await signInWithPopup(auth, provider);
-       // Envoi des données utilisateur au serveur backend         
-       /*
-       const res = await fetch('/api/auth/google', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: result.user.displayName,
-            email: result.user.email,
-            photo: result.user.photoURL,
-          }),
-        });
-        // Réponse en JSON
-        const data = await res.json();
-        */
-
+ 
         // Envoi des user data au serveur avec RTK Query
         const { name, email, photoURL } = result.user;
         const res = await googleSignIn({
